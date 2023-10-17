@@ -1,24 +1,37 @@
-﻿namespace TareaOperacionesBasicas
+﻿using Microsoft.Maui.Controls;
+using System;
+
+namespace TareaOperacionesBasicas
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void OnSumButtonClicked(object sender, EventArgs e)
         {
-            count++;
+            if (double.TryParse(Number1Entry.Text, out double number1) && double.TryParse(Number2Entry.Text, out double number2))
+            {
+                double result = number1 + number2;
+                ResultLabel.Text = $"Resultado: {result}";
+            }
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Presiona {count} vez";
-            else
-                CounterBtn.Text = $"Presiona {count} veces";
+        private void OnSubtractButtonClicked(object sender, EventArgs e)
+        {
+            // Implementa la resta de manera similar
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private void OnMultiplyButtonClicked(object sender, EventArgs e)
+        {
+            // Implementa la multiplicación de manera similar
+        }
+
+        private void OnDivideButtonClicked(object sender, EventArgs e)
+        {
+            // Implementa la división de manera similar
         }
     }
 }
